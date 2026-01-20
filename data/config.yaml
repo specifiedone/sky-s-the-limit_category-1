@@ -1,0 +1,40 @@
+# data_config.yaml
+# Default configuration for the esports data ingestion pipeline
+
+enabled_sources:
+  - vlr
+  - grid
+
+api_keys:
+  grid: null        # set your GRID API key here if available
+  vlr: null         # vlrdevapi does not require an API key
+
+request_limits:
+  VLRClient: 1      # requests per second
+  GridClient: 2
+
+output_path: "./data/output"
+output_format: "csv"        # csv | parquet
+
+max_matches_to_fetch: 100
+min_match_date: null        # ISO-8601 string, e.g. "2023-01-01T00:00:00Z"
+
+schema_version: "v1"
+
+feature_flags:
+  survival_rate: true
+  aggression_index: true
+  consistency_index: true
+  opening_duel_winrate: false
+  economy_advantage: false
+  role_inferred: false
+
+caching_enabled: true
+cache_path: "./data/cache"
+refresh_policy: "incremental"   # full | incremental
+
+logging_level: "INFO"
+
+timeout_seconds: 15
+retry_attempts: 3
+retry_backoff_seconds: 1.5
