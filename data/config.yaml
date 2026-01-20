@@ -3,7 +3,6 @@
 
 enabled_sources:
   - vlr
-  - grid
 
 api_keys:
   grid: null        # set your GRID API key here if available
@@ -16,7 +15,7 @@ request_limits:
 output_path: "./data/output"
 output_format: "csv"        # csv | parquet
 
-max_matches_to_fetch: 100
+max_matches_to_fetch: 10
 min_match_date: null        # ISO-8601 string, e.g. "2023-01-01T00:00:00Z"
 
 schema_version: "v1"
@@ -25,9 +24,9 @@ feature_flags:
   survival_rate: true
   aggression_index: true
   consistency_index: true
-  opening_duel_winrate: false
-  economy_advantage: false
-  role_inferred: false
+  opening_duel_winrate: true
+  economy_advantage: true
+  role_inferred: true
 
 caching_enabled: true
 cache_path: "./data/cache"
